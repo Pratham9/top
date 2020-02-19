@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'authentication.dart';
-import 'root_page.dart';
+import 'Pages/root_page.dart';
 
 
 void main() => runApp(MyApp());
@@ -11,7 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+          primaryColor: Color(0xFF3EBACE),
+          accentColor: Color(0xFFD8ECF1),
+          scaffoldBackgroundColor: Color(0xFFF3F5F7),
       ),
       home: new RootPage(auth: new Auth()),
     );
