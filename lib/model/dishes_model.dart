@@ -5,6 +5,7 @@ class Dishes {
   String description;
   double price;
   double rating;
+  List<Dishes> dishes;
 
   Dishes({
     this.imageUrl,

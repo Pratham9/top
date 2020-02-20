@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../authentication.dart';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:async';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'add_dishes_page.dart';
 import 'dishes_page.dart';
+import 'add_dishes_page.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -24,7 +23,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentTab = 0;
   final _tabOptions = [
-    DishesPage(),
+    DishPage(),
     AddDishesPage(),
 //    UserProfilePage(),
   ];
