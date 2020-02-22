@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'authentication.dart';
 import 'Pages/root_page.dart';
+import 'package:top/model/dish_notifier.dart';
+import 'package:provider/provider.dart';
 
 
-void main() => runApp(MyApp());
+
+void main() => runApp(MultiProvider(
+  providers: [
+    ChangeNotifierProvider(
+      builder: (context) => DishNotifier(),
+    ),
+  ],
+  child: MyApp(),
+));
 
 class MyApp extends StatelessWidget {
 
