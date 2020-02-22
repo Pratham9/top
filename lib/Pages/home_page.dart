@@ -6,6 +6,7 @@ import 'dart:async';
 
 import 'dishes_page.dart';
 import 'add_dishes_page.dart';
+import 'user_profile_page.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   final _tabOptions = [
     DishPage(),
     AddDishesPage(),
-//    UserProfilePage(),
+   UserProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
