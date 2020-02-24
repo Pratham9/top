@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Dishes {
   String imageUrl;
@@ -26,7 +27,7 @@ class DishPage extends StatelessWidget {
       name: 'Pizza',
       location: 'Panago Pizza',
       description:
-      'Quality pizza delivered. Pizza, wings, salads & more. Vegan, Vegetarian and Gluten-Smart options available. Made Fresh. Gluten-Smart Options. No Artificial Colours. Vegan and Veggie Options. No Artificial Flavours. Types: Vegan, Vegetarian, Gluten-Free.',
+          'Quality pizza delivered. Pizza, wings, salads & more. Vegan, Vegetarian and Gluten-Smart options available. Made Fresh. Gluten-Smart Options. No Artificial Colours. Vegan and Veggie Options. No Artificial Flavours. Types: Vegan, Vegetarian, Gluten-Free.',
       price: 13.99,
       rating: 4.5,
     ),
@@ -35,8 +36,8 @@ class DishPage extends StatelessWidget {
       name: 'Butter Chicken',
       location: 'Mauryas Fine Indian Cuisine',
       description:
-      'Pieces of chicken, first seared in the Tandoori oven then braised in tomato cream sauce',
-      price: 19.99,
+          'Pieces of chicken, first seared in the Tandoori oven then braised in tomato cream sauce',
+      price: 9.99,
       rating: 4.7,
     ),
     Dishes(
@@ -44,8 +45,8 @@ class DishPage extends StatelessWidget {
       name: 'Burger',
       location: 'Montana\'s',
       description:
-      'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
-      price: 18.99,
+          'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
+      price: 8.99,
       rating: 3.9,
     ),
     Dishes(
@@ -53,36 +54,38 @@ class DishPage extends StatelessWidget {
       name: 'Fried Chicken',
       location: 'Montana\'s',
       description:
-      'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
-      price: 24.00,
+          'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
+      price: 14.99,
       rating: 3.9,
-    ),Dishes(
+    ),
+    Dishes(
       imageUrl: 'assets/images/pasta.jpg',
       name: 'Pasta',
       location: 'Montana\'s',
       description:
-      'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
+          'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
       price: 8.99,
       rating: 3.9,
-    ),Dishes(
+    ),
+    Dishes(
       imageUrl: 'assets/images/salad.jpg',
       name: 'Salad',
       location: 'Montana\'s',
       description:
-      'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
+          'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
       price: 7.99,
       rating: 3.9,
-    ),Dishes(
+    ),
+    Dishes(
       imageUrl: 'assets/images/sandwich.jpg',
       name: 'Sandwich',
       location: 'Montana\'s',
       description:
-      'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
-      price: 9.99,
+          'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
+      price: 4.49,
       rating: 3.9,
     )
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +108,8 @@ class DishPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
-              itemCount: dishes.length, //this is where we will type the desired number of item to view in a list
+              itemCount: dishes
+                  .length, //this is where we will type the desired number of item to view in a list
               itemBuilder: (BuildContext context, int index) {
                 return Stack(
                   children: <Widget>[
@@ -127,17 +131,30 @@ class DishPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Container(
-                                  width: 120.0,
-                                  child: Text(
-                                    dishes[index].name,
-                                    style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w600,
+                                Column(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 140.0,
+                                      child: Text(
+                                        dishes[index].name,
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                      ),
                                     ),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),
+                                    Container(
+                                      width: 140.0,
+                                      child: Text(
+                                        dishes[index].location,
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Column(
                                   children: <Widget>[
@@ -154,17 +171,34 @@ class DishPage extends StatelessWidget {
                                         color: Colors.grey,
                                       ),
                                     ),
+                                    SizedBox(height: 10.0),
+                                    Container(
+                                      width: 62.0,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: <Widget>[
+//                                        Text('21'),
+                                          IconButton(
+                                            icon: Icon(FontAwesomeIcons.heart),
+                                            iconSize: 15.0,
+                                            color: Colors.transparent,
+                                          ),
+                                          Text(
+                                            '21',
+                                            style: TextStyle(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
                                   ],
                                 ),
                               ],
                             ),
-                            Text(
-                              dishes[index].location,
-                              style: TextStyle(
-                                color: Colors.grey,
-                              ),
-                            ),
-                            SizedBox(height: 10.0),
+                            SizedBox(height: 30.0),
                           ],
                         ),
                       ),
@@ -193,5 +227,4 @@ class DishPage extends StatelessWidget {
       ),
     );
   }
-
 }
