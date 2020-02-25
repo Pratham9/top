@@ -39,7 +39,7 @@ class _DishSelectedState extends State<DishSelected> {
                     fit: BoxFit.cover,
                   ),
                   shaderCallback: (Rect bounds) {
-                    return LinearGradient (
+                    return LinearGradient(
                       colors: [Colors.white, Colors.black87],
                       begin: FractionalOffset.topCenter,
                       end: FractionalOffset.bottomCenter,
@@ -62,22 +62,6 @@ class _DishSelectedState extends State<DishSelected> {
                     iconSize: 30.0,
                     color: Colors.black,
                     onPressed: () => Navigator.pop(context),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.search),
-                        iconSize: 30.0,
-                        color: Colors.black,
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      IconButton(
-                        icon: Icon(FontAwesomeIcons.sortAmountDown),
-                        iconSize: 25.0,
-                        color: Colors.black,
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                    ],
                   ),
                 ],
               ),
@@ -153,6 +137,115 @@ class _DishSelectedState extends State<DishSelected> {
               ),
             ),
           ],
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.heart,
+                    size: 20.0,
+                  ),
+                  SizedBox(width: 10.0),
+                  Text(
+                    '69',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.dollarSign,
+                    size: 20.0,
+                  ),
+                  Text(
+                    '15.75',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 5.0),
+          height: 170.0,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  'A summer classic, stacked with organic tomato sauce, extra pepperoni, bacon, sautéed mushrooms, mozzarella and cheddar.',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
+                Row(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(top: 25.0, left: 5.0),
+                      height: 30.0,
+                      width: 60.0,
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Meat',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 25.0, left: 5.0),
+                      height: 30.0,
+                      width: 60.0,
+                      decoration: BoxDecoration(
+                        color: Colors.greenAccent,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Veggies',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 25.0, left: 5.0),
+                      height: 30.0,
+                      width: 60.0,
+                      decoration: BoxDecoration(
+                        color: Colors.lightBlueAccent,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Dairy',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
         ),
       ]),
     );

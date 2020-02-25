@@ -24,11 +24,11 @@ class DishPage extends StatelessWidget {
   List<Dishes> dishes = [
     Dishes(
       imageUrl: 'assets/images/pizza.jpg',
-      name: 'Pizza',
+      name: 'Deluxe Pizza',
       location: 'Panago Pizza',
       description:
       'Quality pizza delivered. Pizza, wings, salads & more. Vegan, Vegetarian and Gluten-Smart options available. Made Fresh. Gluten-Smart Options. No Artificial Colours. Vegan and Veggie Options. No Artificial Flavours. Types: Vegan, Vegetarian, Gluten-Free.',
-      price: 13.99,
+      price: 15.75,
       rating: 4.5,
     ),
     Dishes(
@@ -136,17 +136,30 @@ class DishPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Container(
-                                    width: 120.0,
-                                    child: Text(
-                                      dishes[index].name,
-                                      style: TextStyle(
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w600,
+                                  Column(
+                                    children: <Widget>[
+                                      Container(
+                                        width: 140.0,
+                                        child: Text(
+                                          dishes[index].name,
+                                          style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                        ),
                                       ),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
-                                    ),
+                                      Container(
+                                        width: 140.0,
+                                        child: Text(
+                                          dishes[index].location,
+                                          style: TextStyle(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                   Column(
                                     children: <Widget>[
@@ -166,12 +179,6 @@ class DishPage extends StatelessWidget {
                                     ],
                                   ),
                                 ],
-                              ),
-                              Text(
-                                dishes[index].location,
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
                               ),
                               SizedBox(height: 10.0),
                             ],
