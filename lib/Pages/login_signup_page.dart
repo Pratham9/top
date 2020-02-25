@@ -90,15 +90,24 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Flutter login demo'),
-        ),
         body: Stack(
-          children: <Widget>[
-            _showForm(),
-            _showCircularProgress(),
-          ],
-        ));
+      children: <Widget>[
+        SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 120.0),
+            child: Text(
+              'Hello User!',
+              style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+        _showForm(),
+        _showCircularProgress(),
+      ],
+    ));
   }
 
   Widget _showCircularProgress() {
@@ -137,18 +146,21 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   Widget _showForm() {
     return new Container(
         padding: EdgeInsets.all(16.0),
-        child: new Form(
-          key: _formKey,
-          child: new ListView(
-            shrinkWrap: true,
-            children: <Widget>[
-              showLogo(),
-              showEmailInput(),
-              showPasswordInput(),
-              showPrimaryButton(),
-              showSecondaryButton(),
-              showErrorMessage(),
-            ],
+        child: Align(
+          alignment: Alignment(1, 1),
+          child: new Form(
+            key: _formKey,
+            child: new ListView(
+              shrinkWrap: true,
+              children: <Widget>[
+                showLogo(),
+                showEmailInput(),
+                showPasswordInput(),
+                showPrimaryButton(),
+                showSecondaryButton(),
+                showErrorMessage(),
+              ],
+            ),
           ),
         ));
   }
