@@ -9,6 +9,7 @@ class Dishes {
   double price;
   double rating;
   List<Dishes> dishes;
+  bool liked = false;
 
   Dishes({
     this.imageUrl,
@@ -20,7 +21,9 @@ class Dishes {
   });
 }
 
+
 class DishPage extends StatelessWidget {
+
   List<Dishes> dishes = [
     Dishes(
       imageUrl: 'assets/images/pizza.jpg',
@@ -178,14 +181,18 @@ class DishPage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
-//                                        Text('21'),
+                                          Icon(Icons.favorite, size: 30, color: post.isLiked ? Colors.red : Colors.black,),
+                                          IconButton(icon: Icon(Icons.favorite), color: post.isLiked ? Colors.red : Colors.white,)
                                           IconButton(
-                                            icon: Icon(FontAwesomeIcons.heart),
-                                            iconSize: 15.0,
+                                            icon: Icon(Icons.favorite_border, color: Colors.black,),
+                                            iconSize: 20.0,
                                             color: Colors.transparent,
+                                            onPressed: (){
+                                              icon: Icon(Icons.favorite, color: Colors.red,);
+                                            },
                                           ),
                                           Text(
-                                            '21',
+                                            '20',
                                             style: TextStyle(
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.w600,
