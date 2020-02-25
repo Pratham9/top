@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top/Pages/dish_selected_page.dart';
 
 class Dishes {
   String imageUrl;
@@ -109,63 +110,72 @@ class DishPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return Stack(
                   children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
-                      height: 170.0,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.0),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => DishSelected(
+                          ),
+                        ),
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(100.0, 20.0, 20.0, 20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Container(
-                                  width: 120.0,
-                                  child: Text(
-                                    dishes[index].name,
-                                    style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      '\$${dishes[index].price}',
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+                        height: 170.0,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(100.0, 20.0, 20.0, 20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: 120.0,
+                                    child: Text(
+                                      dishes[index].name,
                                       style: TextStyle(
-                                        fontSize: 22.0,
+                                        fontSize: 18.0,
                                         fontWeight: FontWeight.w600,
                                       ),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
                                     ),
-                                    Text(
-                                      'plus tax',
-                                      style: TextStyle(
-                                        color: Colors.grey,
+                                  ),
+                                  Column(
+                                    children: <Widget>[
+                                      Text(
+                                        '\$${dishes[index].price}',
+                                        style: TextStyle(
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Text(
-                              dishes[index].location,
-                              style: TextStyle(
-                                color: Colors.grey,
+                                      Text(
+                                        'plus tax',
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                            ),
-                            SizedBox(height: 10.0),
-                          ],
+                              Text(
+                                dishes[index].location,
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              SizedBox(height: 10.0),
+                            ],
+                          ),
                         ),
                       ),
                     ),

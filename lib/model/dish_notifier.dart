@@ -3,24 +3,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:top/model/dishes_model.dart';
 
 class DishNotifier with ChangeNotifier {
-  List<Dishes> _dishList = [];
-  Dishes _currentDish;
+  List<Dbishes> _dishList = [];
+  Dbishes _currentDish;
 
-  UnmodifiableListView<Dishes> get dishList => UnmodifiableListView(_dishList);
+  UnmodifiableListView<Dbishes> get dishList => UnmodifiableListView(_dishList);
 
-  Dishes get currentFood => _currentDish;
+  Dbishes get currentFood => _currentDish;
 
-  set dishList(List<Dishes> dishList) {
+  set dishList(List<Dbishes> dishList) {
     _dishList = dishList;
     notifyListeners();
   }
 
-  addFood(Dishes dish) {
+  addFood(Dbishes dish) {
     _dishList.insert(0, dish);
     notifyListeners();
   }
 
-  deleteFood(Dishes dish) {
+  deleteFood(Dbishes dish) {
     _dishList.removeWhere((_dish) => _dish.id == dish.id);
     notifyListeners();
   }

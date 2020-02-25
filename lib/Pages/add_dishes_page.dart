@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
 class AddDishesPage extends StatefulWidget {
-  final Dishes dishes;
+  final Dbishes dishes;
 
   AddDishesPage({this.dishes});
   @override
