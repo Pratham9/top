@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:top/Pages/dish_selected_page.dart';
 
 class Dishes {
@@ -7,7 +8,7 @@ class Dishes {
   String location;
   String description;
   double price;
-  double rating;
+  num rating;
   List<Dishes> dishes;
 
   Dishes({
@@ -29,16 +30,16 @@ class DishPage extends StatelessWidget {
       description:
       'Quality pizza delivered. Pizza, wings, salads & more. Vegan, Vegetarian and Gluten-Smart options available. Made Fresh. Gluten-Smart Options. No Artificial Colours. Vegan and Veggie Options. No Artificial Flavours. Types: Vegan, Vegetarian, Gluten-Free.',
       price: 15.75,
-      rating: 4.5,
+      rating: 69,
     ),
     Dishes(
       imageUrl: 'assets/images/butterchicken.jpg',
-      name: 'Butter Chicken',
+      name: 'Butter Chicken Curry with Naan Bread',
       location: 'Mauryas Fine Indian Cuisine',
       description:
       'Pieces of chicken, first seared in the Tandoori oven then braised in tomato cream sauce',
       price: 19.99,
-      rating: 4.7,
+      rating: 57,
     ),
     Dishes(
       imageUrl: 'assets/images/burger.jpg',
@@ -47,7 +48,7 @@ class DishPage extends StatelessWidget {
       description:
       'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
       price: 18.99,
-      rating: 3.9,
+      rating: 39,
     ),
     Dishes(
       imageUrl: 'assets/images/friedchicken.jpg',
@@ -56,7 +57,7 @@ class DishPage extends StatelessWidget {
       description:
       'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
       price: 24.00,
-      rating: 3.9,
+      rating: 35,
     ),Dishes(
       imageUrl: 'assets/images/pasta.jpg',
       name: 'Pasta',
@@ -64,7 +65,7 @@ class DishPage extends StatelessWidget {
       description:
       'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
       price: 8.99,
-      rating: 3.9,
+      rating: 33,
     ),Dishes(
       imageUrl: 'assets/images/salad.jpg',
       name: 'Salad',
@@ -72,7 +73,7 @@ class DishPage extends StatelessWidget {
       description:
       'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
       price: 7.99,
-      rating: 3.9,
+      rating: 31,
     ),Dishes(
       imageUrl: 'assets/images/sandwich.jpg',
       name: 'Sandwich',
@@ -80,7 +81,7 @@ class DishPage extends StatelessWidget {
       description:
       'Ground beef, or minced cow meat mince or other meat used to make hamburgers. Patty, the ground meat in a circular shape to fit the burger bun.',
       price: 9.99,
-      rating: 3.9,
+      rating: 20,
     )
   ];
 
@@ -170,17 +171,34 @@ class DishPage extends StatelessWidget {
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
-                                      Text(
-                                        'plus tax',
-                                        style: TextStyle(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
+//                                      Text(
+//                                        'plus tax',
+//                                        style: TextStyle(
+//                                          color: Colors.grey,
+//                                        ),
+//                                      ),
                                     ],
                                   ),
                                 ],
                               ),
                               SizedBox(height: 10.0),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Icon(
+                                    FontAwesomeIcons.heart,
+                                    size: 15.0,
+                                  ),
+                                  SizedBox(width: 10.0),
+                                  Text(
+                                    '${dishes[index].rating}',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
