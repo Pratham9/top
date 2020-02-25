@@ -76,7 +76,7 @@ class _AddDishesPageState extends State<AddDishesPage> {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 30.0),
+          padding: EdgeInsets.symmetric(vertical: 20.0),
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(left: 20.0, right: 120.0),
