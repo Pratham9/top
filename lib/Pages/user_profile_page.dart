@@ -4,7 +4,8 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import '../authentication.dart';
 import 'dart:async';
-import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
+import 'package:top/provider_widget.dart';
 
 
 class UserProfilePage extends StatefulWidget {
@@ -80,58 +81,29 @@ class _UserProfilePageState extends State<UserProfilePage> {
       return Image.file(imageFile, width: 300, height: 300, fit: BoxFit.fill,);
     }
   }
-//
-//  Widget showSignOut(context, bool isAnonymous) {
-//    if (isAnonymous == true) {
-//      return RaisedButton(
-//        child: Text("Sign In To Save Your Data"),
-//        onPressed: () {
-//          Navigator.of(context).pushNamed('/convertUser');
-//        },
-//      );
-//    } else {
-//      return RaisedButton(
-//        child: Text("Sign Out"),
-//        onPressed: () async {
-//          try {
-//            await Provider
-//                .of(context)
-//                .auth
-//                .signOut();
-//          } catch (e) {
-//            print(e);
-//          }
-//        },
-//      );
-//    }
-//  }
 
-//  Widget displayUserInformation(context, snapshot) {
-//    final user = snapshot.data;
-//
-//    return Column(
-//      children: <Widget>[
-////        Padding(
-////          padding: const EdgeInsets.all(8.0),
-////          child: Text(
-////            "Name: ${user.displayName ?? 'Anonymous'}", style: TextStyle(fontSize: 20),),
-////        ),
-////
-////        Padding(
-////          padding: const EdgeInsets.all(8.0),
-////          child: Text("Email: ${user.email ?? 'Anonymous'}", style: TextStyle(fontSize: 20),),
-////        ),
-//
-////        Padding(
-////          padding: const EdgeInsets.all(8.0),
-////          child: Text("Created: ${DateFormat('MM/dd/yyyy').format(
-////              user.metadata.creationTime)}", style: TextStyle(fontSize: 20),),
-////        ),
-//
-//        showSignOut(context, user.isAnonymous),
-//      ],
-//    );
-//  }
+  Widget showSignOut(context, bool isAnonymous){
+    if (isAnonymous == true) {
+      return RaisedButton(
+        child: Text("Sign In To Save Your Data"),
+        onPressed: () {
+          Navigator.of(context).pushNamed('/convertUser');
+        },
+      );
+    } else {
+      return RaisedButton(
+        child: Text("Sign Out"),
+        onPressed: () async {
+          try {
+            await Provider.of(context).auth.signOut();
+          } catch (e) {
+            print(e);
+          }
+        },
+      );
+    }
+
+  }
 
 
 //  signOut() async {
@@ -146,6 +118,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+
 
     return Scaffold(
       body: SafeArea(
@@ -203,6 +176,19 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 padding: EdgeInsets.only(right: 10.0, left: 10.0),
                 child: Column(
                   children: <Widget>[
+//                    FutureBuilder(
+//                      future: Provider.of(context).auth.getCurrentUser(),
+//                      builder: (context, snapshot){
+//                        if (snapshot.connectionState == ConnectionState.done){
+//                          return Text("done");
+//                         // ${snapshot.data}
+//                        }
+//                        else{
+//                          return CircularProgressIndicator();
+//                        }
+//                      },
+//
+//                    ),
                     TextField(
                       decoration: InputDecoration(
                           border: InputBorder.none, hintText: 'Username'),
@@ -231,8 +217,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
                     style: new TextStyle(
                         fontSize: 18.0, fontWeight: FontWeight.w300)),
                 onPressed: (){
-                 // showSignOut(context,  isAnonymous);
-                  
+                  var user;
+                  showSignOut(context, user.isAnonymous);
+
                 },
               ),
             ),
