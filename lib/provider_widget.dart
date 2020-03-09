@@ -1,10 +1,10 @@
-import 'package:top/authentication.dart';
+import 'package:top/auth_services.dart';
 import 'package:flutter/material.dart';
 
-import 'authentication.dart';
+
 
 class Provider extends InheritedWidget {
-  final BaseAuth auth;
+  final AuthService auth;
 
   Provider({Key key, Widget child, this.auth}) : super(key: key, child: child);
 

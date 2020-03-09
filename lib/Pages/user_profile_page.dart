@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:top/auth_services.dart';
 import '../authentication.dart';
 import 'dart:async';
 //import 'package:provider/provider.dart';
@@ -12,7 +13,7 @@ class UserProfilePage extends StatefulWidget {
   UserProfilePage({Key key, this.auth, this.userId, this.logoutCallback})
       : super(key: key);
 
-  final BaseAuth auth;
+  final AuthService auth;
   final VoidCallback logoutCallback;
   final String userId;
 
