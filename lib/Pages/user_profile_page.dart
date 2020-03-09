@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:top/auth_services.dart';
-import '../authentication.dart';
-import 'dart:async';
-//import 'package:provider/provider.dart';
-import 'package:top/provider_widget.dart';
 
+import 'dart:async';
+
+import 'package:top/provider_widget.dart';
 
 class UserProfilePage extends StatefulWidget {
   UserProfilePage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -29,7 +28,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
 
   get myController => null;
 
- // bool get isAnonymous => null;
+  // bool get isAnonymous => null;
 
   _openGallary(BuildContext context) async {
     var picture = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -77,50 +76,73 @@ class _UserProfilePageState extends State<UserProfilePage> {
 
   Widget decideImageView() {
     if (imageFile == null) {
-      return Image.network('http://i.imgur.com/zL4Krbz.jpg', fit: BoxFit.fill,);
+      return Image.network(
+        'http://i.imgur.com/zL4Krbz.jpg',
+        fit: BoxFit.fill,
+      );
     } else {
-      return Image.file(imageFile, width: 300, height: 300, fit: BoxFit.fill,);
+      return Image.file(
+        imageFile,
+        width: 300,
+        height: 300,
+        fit: BoxFit.fill,
+      );
     }
   }
 
-  Widget showSignOut(context, bool isAnonymous){
-    if (isAnonymous == true) {
-      return RaisedButton(
-        child: Text("Sign In To Save Your Data"),
-        onPressed: () {
-          Navigator.of(context).pushNamed('/convertUser');
-        },
-      );
-    } else {
-      return RaisedButton(
-        child: Text("Sign Out"),
-        onPressed: () async {
-          try {
-            await Provider.of(context).auth.signOut();
-          } catch (e) {
-            print(e);
-          }
-        },
-      );
-    }
+  Widget SignOut(context, snapshot) {
+    final user = snapshot.data;
 
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+          child: FlatButton(
+            shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(15.0),
+                side: BorderSide(
+                  color: Theme.of(context).primaryColor,
+                )),
+            child: new Text('Logout',
+                style:
+                    new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300)),
+            onPressed: () async {
+              try {
+                await Provider.of(context).auth.signOut();
+              } catch (e) {
+                print(e);
+              }
+            },
+          ),
+        ),
+
+      ],
+    );
   }
 
-
-//  signOut() async {
-//    try {
-//      await widget.auth.signOut();
-//      widget.logoutCallback();
-//    } catch (e) {
-//      print(e);
+//  Widget showSignOut(context, bool isAnonymous) {
+// //   if (isAnonymous == true) {
+////      return RaisedButton(
+////        child: Text("Sign In To Save Your Data"),
+////        onPressed: () {
+////          Navigator.of(context).pushNamed('/convertUser');
+////        },
+////      );
+////    } else {
+//      return RaisedButton(
+//        child: Text("Sign Out"),
+//        onPressed: () async {
+//          try {
+//            await Provider.of(context).auth.signOut();
+//          } catch (e) {
+//            print(e);
+//          }
+//        },
+//      );
 //    }
-//  }
-
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -140,7 +162,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
             Padding(
               padding: const EdgeInsets.only(right: 40.0, left: 40.0),
               child: CircleAvatar(
-                backgroundColor: Colors.transparent,
+                  backgroundColor: Colors.transparent,
                   radius: 100,
                   child: ClipOval(
                       child: SizedBox(
@@ -155,7 +177,6 @@ class _UserProfilePageState extends State<UserProfilePage> {
                     borderRadius: new BorderRadius.circular(15.0),
                     side: BorderSide(
                       color: Theme.of(context).primaryColor,
-
                     )),
                 child: new Text('Upload Image',
                     style: new TextStyle(
@@ -177,19 +198,6 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 padding: EdgeInsets.only(right: 10.0, left: 10.0),
                 child: Column(
                   children: <Widget>[
-//                    FutureBuilder(
-//                      future: Provider.of(context).auth.getCurrentUser(),
-//                      builder: (context, snapshot){
-//                        if (snapshot.connectionState == ConnectionState.done){
-//                          return Text("done");
-//                         // ${snapshot.data}
-//                        }
-//                        else{
-//                          return CircularProgressIndicator();
-//                        }
-//                      },
-//
-//                    ),
                     TextField(
                       decoration: InputDecoration(
                           border: InputBorder.none, hintText: 'Username'),
@@ -206,23 +214,15 @@ class _UserProfilePageState extends State<UserProfilePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 10.0, left: 10.0),
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(15.0),
-                    side: BorderSide(
-                      color: Theme.of(context).primaryColor,
-                    )),
-                child: new Text('Logout',
-                    style: new TextStyle(
-                        fontSize: 18.0, fontWeight: FontWeight.w300)),
-                onPressed: (){
-                  var user;
-                  showSignOut(context, user.isAnonymous);
-
-                },
-              ),
+            FutureBuilder(
+              future: Provider.of(context).auth.getCurrentUser(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return SignOut(context, snapshot);
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
             ),
           ],
         ),

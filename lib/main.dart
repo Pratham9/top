@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:top/Pages/home_page.dart';
 import 'package:top/Pages/signup_view.dart';
+import 'package:top/Pages/user_profile_page.dart';
 import 'package:top/auth_services.dart';
 import 'Pages/home_page.dart';
 import 'Pages/root_page.dart';
