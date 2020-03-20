@@ -80,6 +80,7 @@ class _SignUpViewState extends State<SignUpView> {
     final _height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Stack(
         children: <Widget>[
            Container(
