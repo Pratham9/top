@@ -1,4 +1,4 @@
-package com.example.top
+package com.toptaste.android
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

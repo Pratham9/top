@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:248879074977:android:9e85f0b3fb3fd3f235aae0",
+        "mobilesdk_app_id": "1:248879074977:android:1369efdf92a5681f35aae0",
         "android_client_info": {
-          "package_name": "com.example.top"
+          "package_name": "com.toptaste.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "248879074977-djb7ruav54draf3egg2qq1m40tu7ghd6.apps.googleusercontent.com",
+          "client_id": "248879074977-2gfbj08l5era3b6b3f7av0bfela6idjn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.top",
+            "package_name": "com.toptaste.android",
             "certificate_hash": "3174400d466ed5be3d282a449cefe10e8635b2fb"
           }
         },
@@ -38,6 +38,13 @@
             {
               "client_id": "248879074977-rira4rel83uiedpgvprsbhvp7febqllv.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "248879074977-mqtlv5nqdr5d8ci8fd5rgbm7tjgl4s50.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.top"
+              }
             }
           ]
         }
